@@ -13,6 +13,10 @@
 		34BB804429A138D500D19368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BB804229A138D500D19368 /* Main.storyboard */; };
 		34BB804629A138D600D19368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BB804529A138D600D19368 /* Assets.xcassets */; };
 		34BB804929A138D600D19368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BB804729A138D600D19368 /* LaunchScreen.storyboard */; };
+		34BB805729A13F6D00D19368 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB805629A13F6D00D19368 /* Beer.swift */; };
+		34BB805929A13FB500D19368 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB805829A13FB500D19368 /* Constants.swift */; };
+		34BB805B29A1404200D19368 /* ServiceBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB805A29A1404200D19368 /* ServiceBase.swift */; };
+		34BB805D29A1420100D19368 /* BeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB805C29A1420100D19368 /* BeerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		34BB804529A138D600D19368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34BB804829A138D600D19368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34BB804A29A138D600D19368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34BB805629A13F6D00D19368 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		34BB805829A13FB500D19368 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		34BB805A29A1404200D19368 /* ServiceBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceBase.swift; sourceTree = "<group>"; };
+		34BB805C29A1420100D19368 /* BeerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,59 @@
 		34BB803B29A138D500D19368 /* WorldBeers App */ = {
 			isa = PBXGroup;
 			children = (
+				34BB805029A13DFF00D19368 /* Model */,
+				34BB805229A13E2500D19368 /* Services */,
+				34BB805329A13E3700D19368 /* ViewControllers */,
+				34BB805429A13E4700D19368 /* Views */,
 				34BB803C29A138D500D19368 /* AppDelegate.swift */,
 				34BB803E29A138D500D19368 /* SceneDelegate.swift */,
-				34BB804029A138D500D19368 /* ViewController.swift */,
-				34BB804229A138D500D19368 /* Main.storyboard */,
 				34BB804529A138D600D19368 /* Assets.xcassets */,
-				34BB804729A138D600D19368 /* LaunchScreen.storyboard */,
 				34BB804A29A138D600D19368 /* Info.plist */,
 			);
 			path = "WorldBeers App";
+			sourceTree = "<group>";
+		};
+		34BB805029A13DFF00D19368 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				34BB805529A13F5000D19368 /* Beer */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		34BB805229A13E2500D19368 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				34BB805829A13FB500D19368 /* Constants.swift */,
+				34BB805A29A1404200D19368 /* ServiceBase.swift */,
+				34BB805C29A1420100D19368 /* BeerService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		34BB805329A13E3700D19368 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				34BB804029A138D500D19368 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		34BB805429A13E4700D19368 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34BB804729A138D600D19368 /* LaunchScreen.storyboard */,
+				34BB804229A138D500D19368 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34BB805529A13F5000D19368 /* Beer */ = {
+			isa = PBXGroup;
+			children = (
+				34BB805629A13F6D00D19368 /* Beer.swift */,
+			);
+			path = Beer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +190,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BB805929A13FB500D19368 /* Constants.swift in Sources */,
 				34BB804129A138D500D19368 /* ViewController.swift in Sources */,
+				34BB805B29A1404200D19368 /* ServiceBase.swift in Sources */,
 				34BB803D29A138D500D19368 /* AppDelegate.swift in Sources */,
+				34BB805D29A1420100D19368 /* BeerService.swift in Sources */,
 				34BB803F29A138D500D19368 /* SceneDelegate.swift in Sources */,
+				34BB805729A13F6D00D19368 /* Beer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
