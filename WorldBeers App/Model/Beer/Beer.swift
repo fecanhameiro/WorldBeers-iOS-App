@@ -13,17 +13,17 @@ struct Beer: Codable {
     let tagline: String
     let firstBrewed: String
     let description: String
-    let imageUrl: String
-    let abv: Double
-    let ibu: Double
-    let targetFg: Double
-    let targetOg: Double
-    let ebc: Double
-    let srm: Double
-    let ph: Double
-    let attenuationLevel: Double
+    let imageUrl: String?
+    let abv: Double?
+    let ibu: Double?
+    let targetFg: Double?
+    let targetOg: Double?
+    let ebc: Double?
+    let srm: Double?
+    let ph: Double?
+    let attenuationLevel: Double?
     let volume: Volume
-    let boilVolume: Volume
+    let boilVolume: BoilVolume
     let method: Method
     let ingredients: Ingredients
     let foodPairing: [String]
@@ -31,12 +31,26 @@ struct Beer: Codable {
     let contributedBy: String
     
     enum CodingKeys: String, CodingKey {
-        case id, name, tagline, firstBrewed = "first_brewed", description, imageUrl = "image_url", abv, ibu, targetFg = "target_fg", targetOg = "target_og", ebc, srm, ph, attenuationLevel = "attenuation_level", volume, boilVolume = "boil_volume", method, ingredients, foodPairing = "food_pairing", brewersTips = "brewers_tips", contributedBy = "contributed_by"
+        case id, name, tagline, description, abv, ibu, ebc, srm, ph, volume, method, ingredients
+        case firstBrewed = "first_brewed"
+        case imageUrl = "image_url"
+        case targetFg = "target_fg"
+        case targetOg = "target_og"
+        case attenuationLevel = "attenuation_level"
+        case boilVolume = "boil_volume"
+        case contributedBy = "contributed_by"
+        case foodPairing = "food_pairing"
+        case brewersTips = "brewers_tips"
     }
 }
 
 struct Volume: Codable {
-    let value: Int
+    let value: Int?
+    let unit: String
+}
+
+struct BoilVolume: Codable {
+    let value: Int?
     let unit: String
 }
 
@@ -45,50 +59,45 @@ struct Method: Codable {
     let fermentation: Fermentation
     let twist: String?
     
-    struct MashTemp: Codable {
-        let temp: Temp
-        let duration: Int
-        
-        struct Temp: Codable {
-            let value: Double
-            let unit: String
-        }
+    enum CodingKeys: String, CodingKey {
+        case mashTemp = "mash_temp"
+        case fermentation, twist
     }
-    
-    struct Fermentation: Codable {
-        let temp: Temp
-        
-        struct Temp: Codable {
-            let value: Double
-            let unit: String
-        }
-    }
+}
+
+struct MashTemp: Codable {
+    let temp: Temp
+    let duration: Int?
+}
+
+struct Temp: Codable {
+    let value: Int?
+    let unit: String
+}
+
+struct Fermentation: Codable {
+    let temp: Temp
 }
 
 struct Ingredients: Codable {
     let malt: [Malt]
-    let hops: [Hops]
+    let hops: [Hop]
     let yeast: String
-    
-    struct Malt: Codable {
-        let name: String
-        let amount: Amount
-        
-        struct Amount: Codable {
-            let value: Double
-            let unit: String
-        }
-    }
-    
-    struct Hops: Codable {
-        let name: String
-        let amount: Amount
-        let add: String
-        let attribute: String
-        
-        struct Amount: Codable {
-            let value: Double
-            let unit: String
-        }
-    }
+}
+
+struct Malt: Codable {
+    let name: String
+    let amount: Amount
+}
+
+struct Hop: Codable {
+    let name: String
+    let amount: Amount
+    let add: String
+    let attribute: String
+}
+
+struct Amount: Codable {
+    let value: Double?
+    let unit: String
 }
