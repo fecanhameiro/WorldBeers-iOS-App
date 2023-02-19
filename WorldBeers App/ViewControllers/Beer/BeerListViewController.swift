@@ -7,44 +7,49 @@
 
 import UIKit
 
-class BeerListViewController: BaseViewController {
+class BeerListViewController: BaseViewController  {
     
+    @IBOutlet weak var beerSearchBar: UISearchBar!
     @IBOutlet weak var beerTableView: UITableView!
     
     private var selectedBeer: Int?
     private let refreshControl = UIRefreshControl()
-    
+    private var searchTimer: Timer?
+ 
+    var filteredBeerItems: [Beer] = []
     var beerItems: [Beer]? {
         didSet {
             DispatchQueue.main.async {
-                UIApplication.shared.applicationIconBadgeNumber = self.beerItems?.count ?? 0
-                               self.beerTableView.reloadData()
-                               self.refreshControl.endRefreshing()
+                self.beerTableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.refreshControl.tintColor = .yellow
         self.refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
+        self.beerSearchBar.delegate = self
+        
         self.beerTableView.addSubview(refreshControl)
         self.beerTableView.dataSource = self
         self.beerTableView.delegate = self
-        
+
         self.refreshControl.beginRefreshing()
         self.refreshData(self)
     }
     
     @objc private func refreshData(_ sender: Any) {
         DispatchQueue.global(qos: .userInitiated).async {
-            BeerService().getBeerList(page: 1, perPage: 20){ (result) in
+            BeerService().getBeerList(){ (result) in
                 DispatchQueue.main.async {
                     switch result {
                         case .success(let beers):
                             self.beerItems = beers
+                            self.filteredBeerItems = beers
                         case .failure(_):
                             self.alertMessageBox(title: "Error", message: "Error on api")
                     }
@@ -52,10 +57,12 @@ class BeerListViewController: BaseViewController {
             }
         }
     }
-
-
-
+    
+    
+    
 }
+
+
 
 extension BeerListViewController: UITableViewDataSource {
     
@@ -64,23 +71,44 @@ extension BeerListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let items = self.beerItems else {
-            return 0
-        }
-        return items.count
+        return filteredBeerItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let beerItem = self.beerItems![indexPath.row]
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Beer-Cell", for: indexPath) as! BeerTableViewCell
-        cell.beerTextLabel.text = beerItem.name
-
+        let beerItem = self.filteredBeerItems[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: BeerTableViewCell.identifier, for: indexPath) as! BeerTableViewCell
+        cell.loadValues(beer: beerItem)
+        
         return cell
-
+        
     }
     
+}
+
+// MARK: UISearchBarDelegate
+
+extension BeerListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTimer?.invalidate()
+        
+        // Start a new search timer with a delay of 1 second
+        self.searchTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+            if searchText.isEmpty {
+                // If search bar is empty, show all beers
+                self.filteredBeerItems = self.beerItems ?? []
+            } else {
+                // Filter beers by name or description containing search text
+                self.filteredBeerItems = self.beerItems?.filter { beer in
+                    let searchTextLowercased = searchText.lowercased()
+                    return beer.name.lowercased().contains(searchTextLowercased) || beer.description.lowercased().contains(searchTextLowercased)
+                } ?? []
+            }
+            
+            self.beerTableView.reloadData()
+        })
+    }
 }
 
 // MARK: UITableViewDelegate
@@ -88,7 +116,7 @@ extension BeerListViewController: UITableViewDataSource {
 extension BeerListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedBeer = self.beerItems![indexPath.row].id
+        self.selectedBeer = self.filteredBeerItems[indexPath.row].id
         self.performSegue(withIdentifier: "details", sender: self)
     }
     

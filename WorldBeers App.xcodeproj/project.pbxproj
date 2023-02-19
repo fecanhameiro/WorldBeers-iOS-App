@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3491E4BC29A2B66B00F3C53D /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491E4BB29A2B66B00F3C53D /* ImageViewExtension.swift */; };
+		3491E4BE29A2B68800F3C53D /* UiViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491E4BD29A2B68800F3C53D /* UiViewExtension.swift */; };
 		34BB803D29A138D500D19368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB803C29A138D500D19368 /* AppDelegate.swift */; };
 		34BB803F29A138D500D19368 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB803E29A138D500D19368 /* SceneDelegate.swift */; };
 		34BB804129A138D500D19368 /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB804029A138D500D19368 /* BeerListViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3491E4BB29A2B66B00F3C53D /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		3491E4BD29A2B68800F3C53D /* UiViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewExtension.swift; sourceTree = "<group>"; };
 		34BB803929A138D500D19368 /* WorldBeers App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorldBeers App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BB803C29A138D500D19368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34BB803E29A138D500D19368 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3491E4BA29A2B65900F3C53D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3491E4BB29A2B66B00F3C53D /* ImageViewExtension.swift */,
+				3491E4BD29A2B68800F3C53D /* UiViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		34BB803029A138D500D19368 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +149,7 @@
 		34BB806129A148CB00D19368 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3491E4BA29A2B65900F3C53D /* Extension */,
 				34BB806229A148DF00D19368 /* Cells */,
 			);
 			path = Components;
@@ -165,6 +179,8 @@
 			dependencies = (
 			);
 			name = "WorldBeers App";
+			packageProductDependencies = (
+			);
 			productName = "WorldBeers App";
 			productReference = 34BB803929A138D500D19368 /* WorldBeers App.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +209,8 @@
 				Base,
 			);
 			mainGroup = 34BB803029A138D500D19368;
+			packageReferences = (
+			);
 			productRefGroup = 34BB803A29A138D500D19368 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -222,7 +240,9 @@
 			files = (
 				34BB805929A13FB500D19368 /* Constants.swift in Sources */,
 				34BB806429A1491900D19368 /* BeerTableViewCell.swift in Sources */,
+				3491E4BC29A2B66B00F3C53D /* ImageViewExtension.swift in Sources */,
 				34BB804129A138D500D19368 /* BeerListViewController.swift in Sources */,
+				3491E4BE29A2B68800F3C53D /* UiViewExtension.swift in Sources */,
 				34BB805B29A1404200D19368 /* ServiceBase.swift in Sources */,
 				34BB803D29A138D500D19368 /* AppDelegate.swift in Sources */,
 				34BB805D29A1420100D19368 /* BeerService.swift in Sources */,
