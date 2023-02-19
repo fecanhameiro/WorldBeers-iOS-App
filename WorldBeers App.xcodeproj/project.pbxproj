@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3491E4BC29A2B66B00F3C53D /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491E4BB29A2B66B00F3C53D /* ImageViewExtension.swift */; };
 		3491E4BE29A2B68800F3C53D /* UiViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3491E4BD29A2B68800F3C53D /* UiViewExtension.swift */; };
+		3492EC3729A2C09C0074F3B1 /* BeerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492EC3629A2C09C0074F3B1 /* BeerDetailsViewController.swift */; };
+		3492EC3A29A2D0910074F3B1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3492EC3929A2D0910074F3B1 /* SDWebImage */; };
 		34BB803D29A138D500D19368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB803C29A138D500D19368 /* AppDelegate.swift */; };
 		34BB803F29A138D500D19368 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB803E29A138D500D19368 /* SceneDelegate.swift */; };
 		34BB804129A138D500D19368 /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB804029A138D500D19368 /* BeerListViewController.swift */; };
@@ -26,6 +28,7 @@
 /* Begin PBXFileReference section */
 		3491E4BB29A2B66B00F3C53D /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		3491E4BD29A2B68800F3C53D /* UiViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewExtension.swift; sourceTree = "<group>"; };
+		3492EC3629A2C09C0074F3B1 /* BeerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsViewController.swift; sourceTree = "<group>"; };
 		34BB803929A138D500D19368 /* WorldBeers App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WorldBeers App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BB803C29A138D500D19368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34BB803E29A138D500D19368 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3492EC3A29A2D0910074F3B1 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				34BB804029A138D500D19368 /* BeerListViewController.swift */,
+				3492EC3629A2C09C0074F3B1 /* BeerDetailsViewController.swift */,
 			);
 			path = Beer;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			);
 			name = "WorldBeers App";
 			packageProductDependencies = (
+				3492EC3929A2D0910074F3B1 /* SDWebImage */,
 			);
 			productName = "WorldBeers App";
 			productReference = 34BB803929A138D500D19368 /* WorldBeers App.app */;
@@ -210,6 +216,7 @@
 			);
 			mainGroup = 34BB803029A138D500D19368;
 			packageReferences = (
+				3492EC3829A2D0910074F3B1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 34BB803A29A138D500D19368 /* Products */;
 			projectDirPath = "";
@@ -243,6 +250,7 @@
 				3491E4BC29A2B66B00F3C53D /* ImageViewExtension.swift in Sources */,
 				34BB804129A138D500D19368 /* BeerListViewController.swift in Sources */,
 				3491E4BE29A2B68800F3C53D /* UiViewExtension.swift in Sources */,
+				3492EC3729A2C09C0074F3B1 /* BeerDetailsViewController.swift in Sources */,
 				34BB805B29A1404200D19368 /* ServiceBase.swift in Sources */,
 				34BB803D29A138D500D19368 /* AppDelegate.swift in Sources */,
 				34BB805D29A1420100D19368 /* BeerService.swift in Sources */,
@@ -478,6 +486,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3492EC3829A2D0910074F3B1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3492EC3929A2D0910074F3B1 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3492EC3829A2D0910074F3B1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34BB803129A138D500D19368 /* Project object */;
 }

@@ -12,10 +12,10 @@ class BeerListViewController: BaseViewController  {
     @IBOutlet weak var beerSearchBar: UISearchBar!
     @IBOutlet weak var beerTableView: UITableView!
     
-    private var selectedBeer: Int?
+    private var selectedBeer: Beer?
     private let refreshControl = UIRefreshControl()
     private var searchTimer: Timer?
- 
+    
     var filteredBeerItems: [Beer] = []
     var beerItems: [Beer]? {
         didSet {
@@ -29,7 +29,8 @@ class BeerListViewController: BaseViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshControl.tintColor = .yellow
+        self.navigationItem.titleView = self.beerSearchBar
+        
         self.refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
         self.beerSearchBar.delegate = self
@@ -37,9 +38,10 @@ class BeerListViewController: BaseViewController  {
         self.beerTableView.addSubview(refreshControl)
         self.beerTableView.dataSource = self
         self.beerTableView.delegate = self
-
+        
         self.refreshControl.beginRefreshing()
         self.refreshData(self)
+        
     }
     
     @objc private func refreshData(_ sender: Any) {
@@ -58,7 +60,20 @@ class BeerListViewController: BaseViewController  {
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Beer-Details"{
+            if let vc = segue.destination as? BeerDetailsViewController {
+                
+                if let beer = selectedBeer{
+                    vc.beerName = beer.name
+                    vc.beerFirstBrewed = beer.firstBrewed
+                    vc.beerFoodPairing = beer.foodPairing
+                    vc.beerBrewersTips = beer.brewersTips
+                }
+                
+            }
+        }
+    }
     
 }
 
@@ -94,7 +109,7 @@ extension BeerListViewController: UISearchBarDelegate {
         self.searchTimer?.invalidate()
         
         // Start a new search timer with a delay of 1 second
-        self.searchTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+        self.searchTimer = Timer.scheduledTimer(withTimeInterval: 0.500, repeats: false, block: { _ in
             if searchText.isEmpty {
                 // If search bar is empty, show all beers
                 self.filteredBeerItems = self.beerItems ?? []
@@ -116,8 +131,8 @@ extension BeerListViewController: UISearchBarDelegate {
 extension BeerListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedBeer = self.filteredBeerItems[indexPath.row].id
-        self.performSegue(withIdentifier: "details", sender: self)
+        self.selectedBeer = self.filteredBeerItems[indexPath.row]
+        self.performSegue(withIdentifier: "Beer-Details", sender: self)
     }
     
 }

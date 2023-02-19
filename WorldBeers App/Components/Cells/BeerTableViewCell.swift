@@ -30,11 +30,11 @@ class BeerTableViewCell: UITableViewCell{
         self.beerABVTextLabel.text = beer.abv != nil ? String(format: "%.1f%%", beer.abv!) : "N/A"
         self.beerIBUTextLabel.text = beer.ibu != nil ? String(format: "%.1f", beer.ibu!) : "N/A"
         
-        self.beerImageView.image = UIImage(named: "placeholder")
+        self.beerImageView.image = nil
         if let imageUrl =  beer.imageUrl{
             if let url = URL(string: imageUrl)
             {
-                self.beerImageView.loadAsync(from: url, withPlaceholder: UIImage(named: "placeholder"))
+                self.beerImageView.loadAsync(from: url)
             }
         }
     }

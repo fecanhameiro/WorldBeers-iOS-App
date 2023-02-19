@@ -6,24 +6,16 @@
 //
 
 import UIKit
+import SDWebImage
 
 extension UIImageView {
     func loadAsync(from url: URL, withPlaceholder placeholder: UIImage? = nil) {
-        self.image = placeholder
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
-        activityIndicator.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
-        activityIndicator.hidesWhenStopped = true
-        self.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Error loading image from url: \(url.absoluteString) - \(error?.localizedDescription ?? "Unknown error")")
+        self.sd_setImage(with: url, placeholderImage: placeholder) { (image, error, cacheType, url) in
+            if let error = error {
+                print("Error loading image from url: \(url?.absoluteString ?? "") - \(error.localizedDescription)")
                 return
             }
-            DispatchQueue.main.async {
-                activityIndicator.stopAnimating()
-                self.image = UIImage(data: data)
-            }
-        }.resume()
+            
+        }
     }
 }
