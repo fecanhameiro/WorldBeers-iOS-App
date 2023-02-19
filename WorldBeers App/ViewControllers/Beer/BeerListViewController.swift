@@ -41,7 +41,7 @@ class BeerListViewController: BaseViewController  {
         
         self.refreshControl.beginRefreshing()
         self.refreshData(self)
-        
+                
     }
     
     @objc private func refreshData(_ sender: Any) {
@@ -53,7 +53,7 @@ class BeerListViewController: BaseViewController  {
                             self.beerItems = beers
                             self.filteredBeerItems = beers
                         case .failure(_):
-                            self.alertMessageBox(title: "Error", message: "Error on api")
+                            self.alertMessageBox(title: NSLocalizedString("error_title", comment: ""), message: NSLocalizedString("error_message", comment: ""))
                     }
                 }
             }
@@ -78,7 +78,7 @@ class BeerListViewController: BaseViewController  {
 }
 
 
-
+/// UITableViewDataSource methods for displaying the list of beers in the table view, filtered by search text if present.
 extension BeerListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,6 +104,7 @@ extension BeerListViewController: UITableViewDataSource {
 
 // MARK: UISearchBarDelegate
 
+///Extension of BeerListViewController for UISearchBarDelegate
 extension BeerListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchTimer?.invalidate()
@@ -128,6 +129,7 @@ extension BeerListViewController: UISearchBarDelegate {
 
 // MARK: UITableViewDelegate
 
+/// Handles the selection of a beer item from the table view and performs a segue to the beer details view controller.
 extension BeerListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

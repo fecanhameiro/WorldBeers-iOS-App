@@ -13,8 +13,6 @@ class BeerService : ServiceBase{
     /// Retrieves a list of beers from the Punk API.
     ///
     /// - Parameters:
-    ///   - page: The page of results to retrieve.
-    ///   - perPage: The number of results per page.
     ///   - completion: A completion block to handle the result of the operation.
     ///
     /// - Returns: A `Result` object containing either an array of `Beer` objects or an `Error`.

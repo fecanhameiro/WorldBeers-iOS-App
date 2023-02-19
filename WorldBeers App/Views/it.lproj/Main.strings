@@ -1,0 +1,38 @@
+/* Class = "UINavigationItem"; title = "Dettagli"; ObjectID = "3rp-hx-FrN"; */
+"3rp-hx-FrN.title" = "Dettagli";
+
+/* Class = "UILabel"; text = "Etichetta"; ObjectID = "8L3-et-a60"; */
+"8L3-et-a60.text" = "Etichetta";
+
+/* Class = "UILabel"; text = "Etichetta"; ObjectID = "8c3-sj-NC2"; */
+"8c3-sj-NC2.text" = "Etichetta";
+
+/* Class = "UILabel"; text = "Consigli del Birraio"; ObjectID = "MRl-SB-RHA"; */
+"MRl-SB-RHA.text" = "Consigli del Birraio";
+
+/* Class = "UILabel"; text = "Gradazione Alcolica:"; ObjectID = "MVG-J8-RTV"; */
+"MVG-J8-RTV.text" = "Gradazione Alcolica:";
+
+/* Class = "UILabel"; text = "Abbinamenti culinari"; ObjectID = "OYm-kH-pFN"; */
+"OYm-kH-pFN.text" = "Abbinamenti culinari";
+
+/* Class = "UILabel"; text = "Etichetta"; ObjectID = "Rix-oE-pqN"; */
+"Rix-oE-pqN.text" = "Etichetta";
+
+/* Class = "UILabel"; text = "Etichetta"; ObjectID = "VCy-5v-LHI"; */
+"VCy-5v-LHI.text" = "Etichetta";
+
+/* Class = "UILabel"; text = "Prima Birrificazione"; ObjectID = "XLd-07-JBw"; */
+"XLd-07-JBw.text" = "Prima Birrificazione";
+
+/* Class = "UILabel"; text = "Etichetta"; ObjectID = "ss5-HS-yeP"; */
+"ss5-HS-yeP.text" = "Etichetta";
+
+/* Class = "UILabel"; text = "Etichetta"; ObjectID = "tSb-2p-Zfj"; */
+"tSb-2p-Zfj.text" = "Etichetta";
+
+/* Class = "UILabel"; text = "IBU"; ObjectID = "uOJ-gU-K6a"; */
+"uOJ-gU-K6a.text" = "IBU";
+
+/* Class = "UISearchBar"; placeholder = "Cerca per nome o descrizione..."; ObjectID = "uuw-Ta-eca"; */
+"uuw-Ta-eca.placeholder" = "Cerca per nome o descrizione...";

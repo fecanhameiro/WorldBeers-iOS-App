@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-1764" y="11"/>
         </scene>
-        <!--Beer List View Controller-->
+        <!--World Beers-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BeerListViewController" customModule="WorldBeers_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bGl-qa-mL5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bGl-qa-mL5">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -169,7 +169,7 @@
                             <constraint firstItem="bGl-qa-mL5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="njr-X8-eLq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="A7S-hL-udd"/>
+                    <navigationItem key="navigationItem" title="World Beers" id="A7S-hL-udd"/>
                     <connections>
                         <outlet property="beerSearchBar" destination="uuw-Ta-eca" id="9p8-Ct-aYP"/>
                         <outlet property="beerTableView" destination="bGl-qa-mL5" id="HMG-KD-kwt"/>

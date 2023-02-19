@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  WorldBeers App
+
+  Created by Felipe C Canhameiro on 19/02/23.
+  
+*/
+"error_title" = "Error";
+"error_message" = "An unexpected error occurred while fetching beers";
