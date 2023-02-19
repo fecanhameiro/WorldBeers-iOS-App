@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  WorldBeers App
+
+  Created by Felipe C Canhameiro on 19/02/23.
+  
+*/
+"error_title" = "Errore";
+"error_message" = "Si è verificato un errore imprevisto durante il recupero delle birre";
